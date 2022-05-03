@@ -1,13 +1,13 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
-    get users_index_url
+    get posts_index_url
     assert_response :success
   end
 
   test 'should get show' do
-    get users_show_url
+    get posts_show_url
     assert_response :success
   end
 end
