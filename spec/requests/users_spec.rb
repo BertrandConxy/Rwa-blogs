@@ -36,7 +36,7 @@ RSpec.describe "Users", type: :request do
     end
 
     context "with render_views enabled" do
-      it "renders view with User profile text in the index template" do
+      it "renders view with User profile text in the show template" do
         expect(response.body).to include("User profile")
       end
     end
