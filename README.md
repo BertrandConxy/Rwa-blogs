@@ -1,6 +1,10 @@
 ![](https://img.shields.io/badge/RwaBlogs-blue)
 # Rwa-blogs
-> This is a web app that provides the opportunity for people who are passionate about reading and writing articles. People can create blogs and others can be able to visit and read them. It is built with Rails. 
+> This is a web app that provides the opportunity for people who are passionate about reading and writing articles. People can create blogs and others can be able to visit and read them. It is built with Rails.
+
+# ERD
+![Rwablog_ERD](https://user-images.githubusercontent.com/90222110/166941605-cba43c78-d4ad-49d2-bf19-985f2aa8bf51.png)
+
 
 # Built with
 
