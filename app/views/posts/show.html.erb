@@ -1,2 +1,17 @@
-<h1>Posts#2</h1>
-<p>Here is where the post is shown</p>
+<div class="position-relative">
+<div>
+    <h1><%=@post.title%> by <%=@post.author.name%></h1>
+    <div class="top-corner">
+        <span>Comments: <%= @post.comments_count %></span>
+        <span>Likes: <%= @post.likes_count %></span>
+    </div>
+</div>
+
+<p><%=@post.text%></p>
+</div>
+<div>
+<h4>Comments</h4>
+    <%@comments.each do |comment|%>
+        <%= render partial: "shared/comment", locals: {comment: comment} %>
+    <%end%>
+</div>

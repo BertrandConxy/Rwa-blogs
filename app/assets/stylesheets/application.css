@@ -32,3 +32,10 @@
     bottom: 8px;
     padding: 5px;
 }
+
+.top-corner {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    padding: 5px;
+}
