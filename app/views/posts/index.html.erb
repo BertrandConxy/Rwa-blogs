@@ -1,2 +1,10 @@
-<h1>Posts</h1>
-<p>Here is where the list of posts is displayed</p>
+<%= render partial: "shared/user", locals: {user: @author} %>
+<h2>Posts</h2>
+<%@author_posts.each do |post|%>
+<div class="border border-2 border-top-0 m-3">
+       <%= render partial: "shared/post", locals: {post: post} %>
+    <%post.most_recent_comments.each do |comment|%>
+        <%= render partial: "shared/comment", locals: {comment: comment} %>
+    <%end%>
+    </div>
+<%end%>

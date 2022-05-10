@@ -6,10 +6,11 @@
 </div>
 </div>
 <div class="m-2">
-<% @posts.each do |post| %>
+<% @recent_posts.each do |post| %>
     <%= link_to user_post_path(@user.id), class: 'link text-dark' do %>
        <%= render partial: "shared/post", locals: {post: post} %> 
     <%end%>
 <%end%>
 </div>
+
 
