@@ -16,3 +16,19 @@
 .link {
     text-decoration: none;
 }
+
+.light-bg {
+    background-color: rgb(183, 198, 198);
+}
+
+.short {
+    height: 50px;
+    overflow: hidden;
+}
+
+.float-right {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    padding: 5px;
+}

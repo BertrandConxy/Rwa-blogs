@@ -1,7 +1,10 @@
-<div>
+<div class="round my-2 border border-2 p-3  position-relative">
 <h3><%= post.title%></h3>
-<p><%= post.text%></p>
-<div>
+<div class='my-2'>
+<p class=" m-0 py-0 short"><%= post.text%></p>
+<span>....</span>
+</div>
+<div class='float-right'>
 <span>Comments: <%= post.comments_count %></span>
 <span>Likes: <%= post.likes_count %></span>
 </div>

@@ -1,12 +1,15 @@
+<div class='light-bg'>
 <%= render partial: "shared/user", locals: {user: @user} %>
-<div>
+<div class="p-2">
 <h3>Bio</h3>
 <%= @user.bio  %>
 </div>
-
+</div>
+<div class="m-2">
 <% @posts.each do |post| %>
     <%= link_to user_post_path(@user.id), class: 'link text-dark' do %>
        <%= render partial: "shared/post", locals: {post: post} %> 
     <%end%>
 <%end%>
+</div>
 
