@@ -10,8 +10,12 @@
 <p><%=@post.text%></p>
 </div>
 <div>
+<%if @post.comments_count == 0 %>
+    <p><strong>No comments were posted.</strong></p>
+    <%else%>
 <h4>Comments</h4>
     <%@comments.each do |comment|%>
         <%= render partial: "shared/comment", locals: {comment: comment} %>
     <%end%>
+<%end%>
 </div>
