@@ -1,8 +1,8 @@
 <h1>Bloggers Hub</h1>
-        <% @users.each do |user| %>
-            <%= link_to user_path(user.id), class:'link' do %>
-                <% unless current_user == user%>
-                <%= render partial: "shared/user", locals: {user: user} %>
-                <%end%>
-            <% end %>
-        <% end %>
+<% @users.each do |user| %>
+    <%= link_to user_path(user.id), class:'link' do %>
+        <% unless current_user == user%>
+            <%= render partial: "shared/user", locals: {user: user} %>
+        <%end%>
+    <% end %>
+<% end %>

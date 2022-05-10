@@ -14,28 +14,28 @@
  *= require_self
  */
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .light-bg {
-    background-color: rgb(183, 198, 198);
+  background-color: rgb(183, 198, 198);
 }
 
 .short {
-    height: 50px;
-    overflow: hidden;
+  height: 50px;
+  overflow: hidden;
 }
 
 .float-right {
-    position: absolute;
-    right: 0;
-    bottom: 8px;
-    padding: 5px;
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  padding: 5px;
 }
 
 .top-corner {
-    position: absolute;
-    right: 0;
-    top: 8px;
-    padding: 5px;
+  position: absolute;
+  right: 0;
+  top: 8px;
+  padding: 5px;
 }

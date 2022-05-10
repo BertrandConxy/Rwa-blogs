@@ -1,21 +1,20 @@
 <div class="position-relative">
-<div>
-    <h1><%=@post.title%> by <%=@post.author.name%></h1>
-    <div class="top-corner">
-        <span>Comments: <%= @post.comments_count %></span>
-        <span>Likes: <%= @post.likes_count %></span>
+    <div>
+        <h1><%=@post.title%> by <%=@post.author.name%></h1>
+        <div class="top-corner">
+            <span>Comments: <%= @post.comments_count %></span>
+            <span>Likes: <%= @post.likes_count %></span>
+        </div>
     </div>
-</div>
-
-<p><%=@post.text%></p>
-</div>
-<div>
-<%if @post.comments_count == 0 %>
-    <p><strong>No comments were posted.</strong></p>
-    <%else%>
-<h4>Comments</h4>
-    <%@comments.each do |comment|%>
-        <%= render partial: "shared/comment", locals: {comment: comment} %>
-    <%end%>
-<%end%>
+    <p><%=@post.text%></p>
+    <div>
+        <%if @post.comments_count == 0 %>
+            <p><strong>No comments were posted.</strong></p>
+        <%else%>
+            <h4>Comments</h4>
+            <%@comments.each do |comment|%>
+                <%= render partial: "shared/comment", locals: {comment: comment} %>
+            <%end%>
+        <%end%>
+    </div>
 </div>
