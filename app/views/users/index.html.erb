@@ -1,2 +1,8 @@
-<h1>Home page</h1>
-<p>This is where the list of users is displayed</p>
+<h1>Bloggers Hub</h1>
+<% @users.each do |user| %>
+    <%= link_to user_path(user.id), class:'link' do %>
+        <% unless current_user == user%>
+            <%= render partial: "shared/user", locals: {user: user} %>
+        <%end%>
+    <% end %>
+<% end %>

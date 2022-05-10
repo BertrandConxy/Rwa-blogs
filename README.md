@@ -2,9 +2,9 @@
 # Rwa-blogs
 > This is a web app that provides the opportunity for people who are passionate about reading and writing articles. People can create blogs and others can be able to visit and read them. It is built with Rails.
 
-# ERD
-![Rwablog_ERD](https://user-images.githubusercontent.com/90222110/166941605-cba43c78-d4ad-49d2-bf19-985f2aa8bf51.png)
+# Screenshoot
 
+![Rwablogs](https://user-images.githubusercontent.com/90222110/167615448-c92d739b-5efa-4f62-b4ab-4f9b78c46c1a.png)
 
 # Built with
 
