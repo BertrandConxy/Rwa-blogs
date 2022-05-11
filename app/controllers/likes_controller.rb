@@ -6,9 +6,9 @@ class LikesController < ApplicationController
     @like.author = current_user
     @like.save
     if @like.save
-        redirect_to user_post_path, notice: "You liked this post!"
+      redirect_to user_post_path, notice: 'You liked this post!'
     else
-        redirect_to user_post_path, alert: "Error occured. Could not like this post"
+      redirect_to user_post_path, alert: 'Error occured. Could not like this post'
     end
   end
 end
