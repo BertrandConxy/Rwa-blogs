@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'users/:user_id/posts', to: 'posts#index', as: 'user_posts'
   # Creating a new post
   get 'users/:user_id/posts/new', to: 'posts#new', as: 'new_post'
-  post 'users/:user_id/posts/new_post', to: 'posts#create', as: 'posts'
+  post 'users/:user_id/posts', to: 'posts#create', as: 'posts'
+  # end
+  # Creating a new comment
+
   # end
   get 'users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
   get '/profile', to: 'application#current_user', as: 'current_user'
