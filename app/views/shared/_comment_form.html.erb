@@ -1,0 +1,11 @@
+<%= form_with(model: @comment, url: comments_path) do |f| %>
+
+  <div class='mb-3'>
+    <%= f.label :text %>
+    <%= f.text_area :text, size: "60x6", placeholder: 'text', class: 'form-control' %>
+  </div>
+
+  <div class='mb-3'>
+    <%= f.submit "Add post", class: 'btn btn-dark' %>
+  </div>
+<% end %>

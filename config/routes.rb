@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   post 'users/:user_id/posts', to: 'posts#create', as: 'posts'
   # end
   # Creating a new comment
-
+  get 'users/:user_id/posts/:id/comments/new', to: 'comments#new', as: 'new_comment'
+  post 'users/:user_id/posts/:id', to: 'comments#create', as: 'comments'
   # end
   get 'users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
   get '/profile', to: 'application#current_user', as: 'current_user'

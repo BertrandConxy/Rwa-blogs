@@ -1,3 +1,6 @@
+<div class="bg-success text-white">
+    <%= notice%>
+</div>
 <div class="position-relative">
     <div>
         <h1><%=@post.title%> by <%=@post.author.name%></h1>
@@ -9,7 +12,7 @@
     <p><%=@post.text%></p>
     <div>
         <div class='d-flex justify-content-end'>
-        <button type= 'button' class="btn btn-dark">Add comment</button>
+        <%= link_to "Add comment", new_comment_path, class:'btn btn-dark' %>
         </div>
         <%if @post.comments_count == 0 %>
             <p><strong>No comments were posted.</strong></p>
