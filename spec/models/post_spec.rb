@@ -25,8 +25,8 @@ RSpec.describe Post, type: :model do
       subject.title = nil
       expect(subject).to_not be_valid
     end
-    it "is not valid with title length greater than 400" do
-      expect(subject.title.length).to be_between(1,400)
+    it "is not valid with title length greater than 250" do
+      expect(subject.title.length).to be_between(1,250)
     end
 
     it "is not valid without valid comments_count and likes_count attribute" do
@@ -38,8 +38,11 @@ RSpec.describe Post, type: :model do
     it "is not valid without valid comments_count and likes_count integer attribute" do
       expect(subject.comments_count).to be >= 0
       expect(subject.likes_count).to be >= 0
-    end
+    end 
+  end
 
-    
+  describe "Associations" do
+    it { should have_many(:comments) }
+    it { should have_many(:likes) }
   end
 end
