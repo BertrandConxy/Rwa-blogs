@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
 
   let(:author) {
-    User.new(:name => "Bertrand")
+    User.create(:name => "Bertrand", :id => 1)
   }
   subject {
-    described_class.new(title: "the 10 JS best practices",
+    described_class.create(title: "the 10 JS best practices",
                         text: "The following are the ten JavaScript best programming practices every devloper should know.",
                         comments_count: 1,
                         likes_count: 2,
@@ -45,4 +45,19 @@ RSpec.describe Post, type: :model do
     it { should have_many(:comments) }
     it { should have_many(:likes) }
   end
+
+describe "methods" do
+    it 'most recent comments must be five' do
+      6.times do
+        subject.comments.create(:text => "So inspiring!!", :author => author)
+      end
+      @recent_comments = subject.most_recent_comments
+      expect(@recent_comments.size).to eq(5)
+    end
+    
+    it "increments the number of posts on author" do
+        author.posts.create(:title=> 'Inspire', :text => "So inspiring!!", :author => author)
+      expect(author.posts_count).to eq(2)
+    end
+end
 end
