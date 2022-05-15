@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to user_post_path, notice: 'Comment has been added successfully'
     else
-      render :new, notice: 'Comment could not be created'
+      render :new, alert: 'Comment could not be created'
     end
   end
 
