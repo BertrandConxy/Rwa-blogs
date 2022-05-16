@@ -1,11 +1,13 @@
-
 <div class="container my-3 d-flex bg-dark text-light rounded-3 position-relative">
     <div class="m-2">
         <img class='rounded'src= <%= user.photo %> alt="profile image"/>
     </div>
     <div class="container d-flex justify-content-around align-items-center">
-        <div>
+        <div class= 'd-flex flex-column'>
             <h3 class="link"><%=user.name %></h3>
+            <%if current_user == user%>
+                <%= link_to " Edit Profile", edit_user_registration_path, class:'btn btn-light link' %>
+            <%end%>
         </div>
         <div class='d-flex flex-column float-right'>
             <%if current_user == user %>

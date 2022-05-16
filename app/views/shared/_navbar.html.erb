@@ -7,7 +7,15 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <%= link_to "Home", users_path, class:'nav-link active' %>
-        <%= link_to "Profile", current_user_path, class:'nav-link active' %>
+        <%if user_signed_in?%>
+          <%= link_to "Profile", user_path(current_user.id), class:'nav-link active' %>
+          <div class=' float-right'>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class:'nav-link active btn btn-dark text-white' %>
+          </div>
+        <%else%>
+          <%= link_to "Sign Up", new_user_registration_path, class:'nav-link active' %>
+          <%= link_to "Sign In", new_user_session_path, class:'nav-link active' %>
+        <%end%>
       </div>
     </div>
   </div>
