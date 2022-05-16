@@ -1,0 +1,20 @@
+<div class="bg-success text-white">
+<%= notice%>
+</div>
+<div class='light-bg'>
+    <%= render partial: "shared/user", locals: {user: current_user} %>
+    <div class="p-2">
+        <h3>Bio</h3>
+        <%= current_user.bio  %>
+    </div>
+</div>
+<div class="m-2">
+    <% current_user.recent_posts.each do |post| %>
+        <%= link_to user_post_path(current_user.id, post.id), class: 'link text-dark' do %>
+        <%= render partial: "shared/post", locals: {post: post} %> 
+        <%end%>
+    <%end%>
+</div>
+<div class="d-flex justify-content-center">
+    <%= link_to "See all posts", user_posts_path(current_user.id), class: ' text-center justify-self-center btn btn-dark' %>
+</div>
