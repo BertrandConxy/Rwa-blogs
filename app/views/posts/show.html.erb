@@ -9,6 +9,7 @@
     <p><%=@post.text%></p>
     <div>
         <div class='d-flex justify-content-end'>
+            <%= button_to "Delete Post", post_path, method: :delete, class:'btn btn-dark mx-3' %>
             <%= button_to "Like", likes_path, class:'btn btn-dark mx-3' %>
             <%= link_to "Add comment", new_comment_path, class:'btn btn-dark' %>
         </div>
