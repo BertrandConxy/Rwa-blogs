@@ -15,5 +15,4 @@ Rails.application.routes.draw do
   post 'users/:user_id/posts/:id/likes', to: 'likes#create', as: 'likes'
   # end
   get 'users/:user_id/posts/:id', to: 'posts#show', as: 'user_post'
-  get '/profile', to: 'users#current_user' , as: 'current_user'
 end
