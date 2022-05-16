@@ -18,7 +18,7 @@
         <%else%>
             <h4>Comments</h4>
             <%@comments.each do |comment|%>
-                <%= render partial: "shared/comment", locals: {comment: comment} %>
+                <%= render partial: "shared/comment_view", locals: {comment: comment} %>
             <%end%>
         <%end%>
     </div>

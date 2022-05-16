@@ -1,3 +1,4 @@
 <div class="border border-1 px-3 d-flex justify-content-between">
     <p><strong><%=comment.author.name%></strong>: <%=comment.text%></p>
+    <%= button_to "Delete", comment_path(params[:user_id], params[:id], comment.id ), method: :delete, class:'btn btn-dark mx-3' %>
 </div>

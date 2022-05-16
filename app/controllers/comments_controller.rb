@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource param_method: :comment_params
   def new
     @comment = Comment.new
   end
@@ -8,11 +9,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:id])
     @comment.post = @post
     @comment.author = current_user
-    @comment.save
     if @comment.save
       redirect_to user_post_path, notice: 'Comment has been added successfully'
     else
-      render :new, alert: 'Comment could not be created'
+      redirect_to user_post_path, alert: 'Comment could not be created'
     end
   end
 
