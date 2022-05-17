@@ -9,15 +9,20 @@
     <p><%=@post.text%></p>
     <div>
         <div class='d-flex justify-content-end'>
-            <%= button_to "Like", likes_path, class:'btn btn-dark mx-3' %>
-            <%= link_to "Add comment", new_comment_path, class:'btn btn-dark' %>
+            <%if user_signed_in?%>
+                <%if current_user.role == 'admin' || @post.author == current_user%>
+                    <%= button_to "Delete Post", post_path, method: :delete, class:'btn btn-dark mx-3' %>
+                <%end%>
+                <%= button_to "Like", likes_path, class:'btn btn-dark mx-3' %>
+                <%= link_to "Add comment", new_comment_path, class:'btn btn-dark' %>
+            <%end%>
         </div>
         <%if @post.comments_count == 0 %>
             <p><strong>No comments were posted.</strong></p>
         <%else%>
             <h4>Comments</h4>
             <%@comments.each do |comment|%>
-                <%= render partial: "shared/comment", locals: {comment: comment} %>
+                <%= render partial: "shared/comment_view", locals: {comment: comment} %>
             <%end%>
         <%end%>
     </div>
