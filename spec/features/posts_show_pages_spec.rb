@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "post index page", :type => :feature do
+RSpec.feature "post show page", :type => :feature do
   before(:each) do
     @user = User.create(name: 'Bertrand',
                         photo: 'https://randomuser.me/api/portraits/men/87.jpg',
@@ -19,25 +19,14 @@ RSpec.feature "post index page", :type => :feature do
     @comment.author = @user
     @comment.save
     login_as(@user)
-    visit user_posts_path(@user)
+    visit user_post_path(@user, @post)
   
   end
 
-  scenario "can see the username" do
-    expect(page).to have_content(@user.name)
+  scenario "can see the post author" do
+    expect(page).to have_content(@post.author.name)
   end
 
-  scenario "can see some post body text" do
-    expect(page).to have_content(@post.text)
-  end
-
-  scenario "can see the photo" do
-    expect(page).to have_css("img[src*='#{@user.photo}']")
-  end
-  
-  scenario "can see the number of posts" do
-    expect(page).to have_content("Number of posts: #{@user.posts_count}")
-  end
   scenario "can see the number of comments" do
     expect(page).to have_content("Comments: #{@post.comments_count}")
   end
@@ -47,13 +36,15 @@ RSpec.feature "post index page", :type => :feature do
   scenario "can see the post title" do
     expect(page).to have_content(@post.title)
   end
-
-  scenario "can see the first comment on post" do
-    expect(page).to have_content(@comment.text)
+  scenario "can see the post body text" do
+    expect(page).to have_content(@post.text)
   end
 
-  scenario "click one post, redirect to users post show page" do
-       click_link('post 4')
-      expect(page).to have_current_path("/users/#{@user.id}/posts/#{@post.id}")
+  scenario "can see the first comment author on post" do
+    expect(page).to have_content(@comment.author.name)
+  end
+
+  scenario "can see the first comment text on post" do
+    expect(page).to have_content(@comment.text)
   end
 end
