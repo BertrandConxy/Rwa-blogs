@@ -30,6 +30,7 @@ RSpec.feature "Log in session", :type => :feature do
     fill_in('Email', with: @user.email)
     fill_in('Password', with: @user.password)
     click_button('Log in')
+    expect(page).to have_current_path(users_path)
     expect(page).to have_content('Signed in successfully')
   end
 end
