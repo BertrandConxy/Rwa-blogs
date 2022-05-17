@@ -33,6 +33,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
   </div>
 
+  <div class="field mb-3">
+    <%= f.check_box :role, {}, "admin", "user" %>
+    <%= f.label :role, "Admin"%>
+  </div>
+
   <div class="actions mb-3">
     <%= f.submit "Sign up", class: 'btn btn-dark' %>
   </div>
