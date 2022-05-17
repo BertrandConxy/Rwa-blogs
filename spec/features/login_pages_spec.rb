@@ -30,9 +30,6 @@ RSpec.feature "Log in session", :type => :feature do
     fill_in('Email', with: @user.email)
     fill_in('Password', with: @user.password)
     click_button('Log in')
-    email = open_email(@user.email)
-    email.should deliver_to(@user.email)
-    email.click_link "Confirm My Account"
     expect(page).to have_content('Signed in successfully')
   end
 end
