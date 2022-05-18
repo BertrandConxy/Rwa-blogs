@@ -51,6 +51,9 @@ gem 'devise'
 # Manage the authorization using CanCanCan
 gem 'cancancan'
 
+# Rswag for api documentation
+gem 'rswag'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
