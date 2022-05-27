@@ -16,5 +16,5 @@ test:
 production:
   <<: *default
   database: RwaBlogs_production
-  username: postgres
-  password: admin
+  username: RwaBlogs
+  password: <%= ENV["RWABLOGS_DATABASE_PASSWORD"] %>
