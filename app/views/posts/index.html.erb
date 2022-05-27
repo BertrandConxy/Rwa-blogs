@@ -1,0 +1,16 @@
+<%= render partial: "shared/user", locals: {user: @author} %>
+<h2>Posts</h2>
+<%@author_posts.each do |post|%>
+    <div class="border border-2 border-top-0 m-3">
+        <%= link_to user_post_path(@author.id, post.id), class: 'link text-dark' do %>
+        <%= render partial: "shared/post", locals: {post: post} %> 
+        <%end%>
+        <%if post.comments_count == 0 %>
+            <p><strong>No comments</strong></p>
+        <%else%>
+            <%post.most_recent_comments.each do |comment|%>
+                <%= render partial: "shared/comment", locals: {comment: comment} %>
+            <%end%>
+        <%end%>
+    </div>
+<%end%>
