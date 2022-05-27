@@ -66,6 +66,7 @@ group :development, :test do
   gem 'ffi'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'rspec', '~> 3.11'
   gem 'shoulda-matchers'
 end
 
