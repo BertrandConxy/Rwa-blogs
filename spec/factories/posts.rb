@@ -4,4 +4,3 @@ FactoryBot.define do
     text { Faker::Lorem.paragraph }
   end
 end
-
