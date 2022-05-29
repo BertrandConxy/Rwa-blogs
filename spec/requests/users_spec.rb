@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :request do
   describe 'GET /' do
     before :each do
+      @user = create(:user)
       get users_path
     end
 
@@ -16,14 +17,15 @@ RSpec.describe 'Users', type: :request do
 
     context 'with render_views enabled' do
       it 'renders view with home page text in the index template' do
-        expect(response.body).to include('Home page')
+        expect(response.body).to include(@user.name)
       end
     end
   end
 
   describe 'GET /users/:id' do
     before :each do
-      get user_path(id: 20)
+      @user = create(:user)
+      get user_path(id: @user.id)
     end
 
     it 'responds with status 200' do
@@ -36,7 +38,7 @@ RSpec.describe 'Users', type: :request do
 
     context 'with render_views enabled' do
       it 'renders view with User profile text in the show template' do
-        expect(response.body).to include('User profile')
+        expect(response.body).to include(@user.name)
       end
     end
   end
