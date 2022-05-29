@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Posts', type: :request do
   describe 'GET users/:user_id/posts' do
     before :each do
-      get user_posts_path(user_id: 20)
+      @user = create(:user)
+      @posts = create_list(:post, 3, author: @user)
+      get user_posts_path(user_id: @user.id)
     end
     it 'responds with status 200' do
       expect(response).to have_http_status(200)
@@ -22,7 +24,9 @@ RSpec.describe 'Posts', type: :request do
 
   describe 'GET' do
     before :each do
-      get user_post_path(user_id: 20, id: 2)
+      @user = create(:user)
+      @posts = create_list(:post, 3, author: @user)
+      get user_post_path(user_id: @user.id, id: @posts.first.id)
     end
     it 'responds with status 200' do
       expect(response).to have_http_status(200)
@@ -34,7 +38,7 @@ RSpec.describe 'Posts', type: :request do
 
     context 'with render_views enabled' do
       it 'renders view with post#2 text in the show template' do
-        expect(response.body).to include('Posts#2')
+        expect(response.body).to include(@posts.first.title)
       end
     end
   end
